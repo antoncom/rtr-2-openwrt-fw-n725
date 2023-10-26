@@ -11,7 +11,7 @@ PKG_VERSION:=1
 PKG_RELEASE:=1
 PKG_SOURCE:=libubus.tar.gz
 PKG_SOURCE_URL:=https://github.com/antoncom/rtr-2-openwrt-fw-n725/raw/opkg-custom-installer/packages/libubus/files/
-PKG_HASH:=0deff76fbc026e52f7dfdcbc52bc904a673179047ed38403e231667fa5d22a01
+PKG_HASH:=5fda15ee65d63c8c293512f5fede63c49fe9b716ca9a9b21d5747fda0cbb6d4f
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -20,7 +20,7 @@ define Package/libubus
     SECTION:=examples
     CATEGORY:=Neoway N725
     TITLE:=libubus
-    DEPENDS:=
+    DEPENDS:=libubox
 endef
 
 define Package/libubus/description

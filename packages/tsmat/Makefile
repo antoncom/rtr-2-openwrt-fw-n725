@@ -24,7 +24,7 @@ define Package/tsmat
     SECTION:=examples
     CATEGORY:=Neoway N725
     TITLE:=Tsmat
-    DEPENDS:=+libuci +libjson-c +liblog +libprop2uci
+    DEPENDS:=+libuci +libjson-c +liblog +libprop2uci +libblobmsg_json +libjson_script +librilutil +libubus
 endef
 
 define Package/tsmat/description
