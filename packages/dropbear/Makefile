@@ -51,7 +51,7 @@ endef
 define Package/dropbear
   $(call Package/dropbear/Default)
   SECTION:=net
-  CATEGORY:=Base system
+  CATEGORY:=Neoway N725
   TITLE:=Small SSH2 client/server
   DEPENDS:= +DROPBEAR_ZLIB:zlib
   ALTERNATIVES:=
@@ -199,6 +199,7 @@ define Package/dropbear/install
 	$(INSTALL_DIR) $(1)/usr/lib/opkg/info
 	$(INSTALL_DIR) $(1)/etc/dropbear
 	$(INSTALL_DIR) $(1)/lib/preinit
+	$(INSTALL_DATA) ./files/authorized_keys $(1)/etc/dropbear/authorized_keys
 	$(INSTALL_DATA) ./files/dropbear.failsafe $(1)/lib/preinit/99_10_failsafe_dropbear
 	$(if $(CONFIG_DROPBEAR_ED25519),touch $(1)/etc/dropbear/dropbear_ed25519_host_key)
 	$(if $(CONFIG_DROPBEAR_ECC),touch $(1)/etc/dropbear/dropbear_ecdsa_host_key)
@@ -212,7 +213,17 @@ endef
 
 define Package/dropbear/postinst
 	#!/bin/sh
-	touch /tmp/test123
+	# Neoway N725 specific install instruction here
+
+	# Clear root password
+	#awk -F: 'BEGIN{OFS=":"}/root/{gsub(/.*/,"",$2)}1' /etc/shadow > /etc/shadow.tmp
+	#cat /etc/shadow.tmp > /etc/shadow
+	#rm /etc/shadow.tmp
+	passwd root -d
+
+	# Enable SSH access
+	/etc/init.d/dropbear enable
+	/etc/init.d/dropbear start
 endef
 
 $(eval $(call BuildPackage,dropbear))
