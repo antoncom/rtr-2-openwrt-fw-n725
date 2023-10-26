@@ -21,10 +21,10 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/tsmat
     SUBMENU:=Technoskver
-    SECTION:=net
+    SECTION:=examples
     CATEGORY:=Neoway N725
     TITLE:=Tsmat
-    DEPENDS:=+libuci +libjson-c +liblog
+    DEPENDS:=+libuci +libjson-c +liblog +libprop2uci
 endef
 
 define Package/tsmat/description
@@ -101,4 +101,4 @@ define Package/tsmat/install
 endef
 
 $(eval $(call BuildPackage,tsmat))
-#$(eval $(call BuildPackage,tsmat,+liblog))
+#$(eval $(call BuildPackage,tsmat))
