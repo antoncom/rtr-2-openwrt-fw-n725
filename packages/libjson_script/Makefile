@@ -11,7 +11,7 @@ PKG_VERSION:=1
 PKG_RELEASE:=1
 PKG_SOURCE:=libjson_script.tar.gz
 PKG_SOURCE_URL:=https://github.com/antoncom/rtr-2-openwrt-fw-n725/raw/opkg-custom-installer/packages/libjson_script/files/
-PKG_HASH:=0deff76fbc026e52f7dfdcbc52bc904a673179047ed38403e231667fa5d22a01
+PKG_HASH:=f3d83c228f0cae0e68e401b4fea2478d8051fff1b8926f6d2638c896b92c1109
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -20,7 +20,7 @@ define Package/libjson_script
     SECTION:=examples
     CATEGORY:=Neoway N725
     TITLE:=libjson_script
-    DEPENDS:=
+    DEPENDS:=libubox
 endef
 
 define Package/libjson_script/description

@@ -11,7 +11,7 @@ PKG_VERSION:=1
 PKG_RELEASE:=1
 PKG_SOURCE:=librilutil.tar.gz
 PKG_SOURCE_URL:=https://github.com/antoncom/rtr-2-openwrt-fw-n725/raw/opkg-custom-installer/packages/librilutil/files/
-PKG_HASH:=0deff76fbc026e52f7dfdcbc52bc904a673179047ed38403e231667fa5d22a01
+PKG_HASH:=5818c8d510af5b4df6f586bbc389cc57114a095d1e8ecab503eed3bb1dd25576
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -20,7 +20,7 @@ define Package/librilutil
     SECTION:=examples
     CATEGORY:=Neoway N725
     TITLE:=librilutil
-    DEPENDS:=
+    DEPENDS:=libubox +libubus
 endef
 
 define Package/librilutil/description

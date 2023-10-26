@@ -11,7 +11,7 @@ PKG_VERSION:=1
 PKG_RELEASE:=1
 PKG_SOURCE:=libblobmsg_json.tar.gz
 PKG_SOURCE_URL:=https://github.com/antoncom/rtr-2-openwrt-fw-n725/raw/opkg-custom-installer/packages/libblobmsg_json/files/
-PKG_HASH:=0deff76fbc026e52f7dfdcbc52bc904a673179047ed38403e231667fa5d22a01
+PKG_HASH:=94bb2ca3845d388ac97fce15b6017f01bc2a499ef2db2600a52142bead17f752
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -20,7 +20,7 @@ define Package/libblobmsg_json
     SECTION:=examples
     CATEGORY:=Neoway N725
     TITLE:=libblobmsg_json
-    DEPENDS:=
+    DEPENDS:=libjson-c +libubox
 endef
 
 define Package/libblobmsg_json/description
